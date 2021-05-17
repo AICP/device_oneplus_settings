@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06779e89_c82a1e5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2021-05-17T08:48:01Z",
+      "side": 1,
+      "message": "Based on: https://review.lineageos.org/c/LineageOS/android_device_oneplus_sm8250-common/+/310211",
+      "revId": "a9f352e40d4b39957bc70580ce5ab607e9200417",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}
