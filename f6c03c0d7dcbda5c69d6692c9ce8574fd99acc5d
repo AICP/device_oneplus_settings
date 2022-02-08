@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f7bbfb6_77de8e20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2022-02-08T11:39:00Z",
+      "side": 1,
+      "message": "needed fw_base commits are pushed here: https://github.com/semdoc/frameworks_base/commits/s12.0-edgelights\n\ncommiyts from today.",
+      "revId": "f6c03c0d7dcbda5c69d6692c9ce8574fd99acc5d",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}
