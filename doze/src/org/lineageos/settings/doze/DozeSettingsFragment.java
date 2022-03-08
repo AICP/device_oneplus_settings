@@ -200,7 +200,7 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mEdgeLightColorPref.setEnabled(mode == 2);
     }
 
-    private static class HelpDialogFragment extends DialogFragment {
+    public static class HelpDialogFragment extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             return new AlertDialog.Builder(getActivity())
