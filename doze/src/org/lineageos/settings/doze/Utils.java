@@ -41,7 +41,6 @@ public final class Utils {
 
     protected static final String CATEG_PICKUP_SENSOR = "pickup_sensor";
     protected static final String CATEG_PROX_SENSOR = "proximity_sensor";
-    protected static final String CATEG_AMBIENT_LIGHT = "pulse_ambient_light";
 
     protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up_type";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
