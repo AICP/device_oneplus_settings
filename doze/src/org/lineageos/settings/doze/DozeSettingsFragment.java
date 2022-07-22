@@ -43,22 +43,14 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
 public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener,
         CompoundButton.OnCheckedChangeListener {
 
     private static final int CONFIGID_POCKET = com.android.internal.R.bool.config_dozePulseProximity;
     private static final int CONFIGID_TILT = com.android.internal.R.bool.config_dozePulseTilt;
 
-    private static final String PULSE_AMBIENT_LIGHT_COLOR_MODE = "pulse_ambient_light_color_mode";
-    private static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
-
     private TextView mTextView;
     private View mSwitchBar;
-
-    private ColorPickerPreference mEdgeLightColorPref;
-    private ListPreference mEdgeLightColorModePref;
 
     private SwitchPreference mAlwaysOnDisplayPreference;
     private ListPreference mPickUpPreference;
@@ -115,14 +107,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             pickupSensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
             proximitySensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
         }
-
-        mEdgeLightColorModePref = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR_MODE);
-        mEdgeLightColorModePref.setOnPreferenceChangeListener(this);
-        mEdgeLightColorPref = (ColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
-        mEdgeLightColorPref.setOnPreferenceChangeListener(this);
-        int edgeLightColorMode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
-                Settings.Secure.PULSE_AMBIENT_LIGHT_COLOR_MODE, 1, UserHandle.USER_CURRENT);
-        updateColorPrefs(edgeLightColorMode);
     }
 
     @Override
@@ -159,11 +143,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         if (Utils.ALWAYS_ON_DISPLAY.equals(preference.getKey())) {
             Utils.enableAlwaysOn(getActivity(), (Boolean) newValue);
         }
-        if (mEdgeLightColorModePref.equals(preference)) {
-            int edgeLightColorMode = Integer.valueOf((String) newValue);
-            updateColorPrefs(edgeLightColorMode);
-            return true;
-        }
         mHandler.post(() -> Utils.checkDozeService(getActivity()));
 
         return true;
@@ -194,10 +173,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             return true;
         }
         return false;
-    }
-
-    private void updateColorPrefs(int mode) {
-        mEdgeLightColorPref.setEnabled(mode == 2);
     }
 
     public static class HelpDialogFragment extends DialogFragment {
